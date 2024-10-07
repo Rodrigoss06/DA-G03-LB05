@@ -1,0 +1,42 @@
+// Página de producto
+.product-details {
+    display: flex;
+    gap: $spacing-unit * 2;
+  
+    .product-image {
+      width: 50%;
+    }
+  
+    .product-info {
+      width: 50%;
+  
+      .product-title {
+        font-size: 2rem;
+      }
+  
+      .product-price {
+        font-size: 1.8rem;
+        color: $secondary-color;
+      }
+  
+      .options {
+        margin-top: $spacing-unit * 2;
+        .form-select {
+          margin-bottom: $spacing-unit;
+        }
+      }
+  
+      .btn-add-to-cart {
+        background-color: $primary-color;
+        color: white;
+        padding: $spacing-unit;
+        @include rounded();
+        @include transition(background-color);
+  
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+  

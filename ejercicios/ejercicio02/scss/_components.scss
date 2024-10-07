@@ -1,0 +1,33 @@
+// Botón
+.button {
+    display: inline-block;
+    padding: $spacing-unit 2*$spacing-unit;
+    background-color: $secondary-color;
+    color: #fff;
+    @include rounded();
+    @include transition(background-color);
+  
+    &:hover {
+      background-color: darken-color($secondary-color, 10%);
+    }
+  }
+  
+  // Tarjetas
+  .card {
+    background-color: #fff;
+    padding: $spacing-unit;
+    @include box-shadow(0px, 4px, 10px, rgba(0, 0, 0, 0.1));
+    @include rounded();
+    margin-bottom: $spacing-unit * 2;
+  
+    .card-title {
+      font-size: 1.25*$font-size-base;
+      color: $primary-color;
+    }
+  
+    .card-content {
+      font-size: 1rem;
+      color: #555;
+    }
+  }
+  

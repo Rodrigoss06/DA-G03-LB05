@@ -1,0 +1,109 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #ff6347;
+$background-dark: #1c1c1c;
+$text-light: #ffffff;
+$font-family-base: 'Arial', sans-serif;
+$font-size-base: 16px;
+$spacing-unit: 1rem;
+$border-radius: 6px;
+
+// Mixins
+@mixin rounded($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow: 0 4px 10px rgba(0, 0, 0, 0.1)) {
+  box-shadow: $shadow;
+}
+
+// Barra de navegación
+.navbar {
+  padding: $spacing-unit;
+  background-color: $background-dark;
+  a.nav-link {
+    color: color.adjust($primary-color, $lightness: 20%); // Usando color.adjust()
+    &:hover {
+      color: color.adjust($primary-color, $lightness: 30%);
+    }
+  }
+  .btn-outline-light {
+    border-color: $primary-color;
+    &:hover {
+      background-color: $primary-color;
+      color: $text-light;
+    }
+  }
+}
+
+// Hero section (Carrusel de productos destacados)
+.hero-section {
+  .carousel-inner {
+    img {
+      height: 500px;
+      object-fit: cover;
+    }
+  }
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: $spacing-unit;
+    border-radius: $border-radius;
+  }
+}
+
+// Sección de categorías
+.categories {
+  background-color: color.adjust($background-dark, $lightness: 5%); // Usando color.adjust()
+  h2 {
+    color: $text-light;
+  }
+  .category-card {
+    background-color: $background-dark;
+    color: $text-light;
+    @include rounded();
+    @include box-shadow;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    img {
+      @include rounded();
+    }
+
+    h3 {
+      margin-bottom: $spacing-unit;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Sección de llamado a la acción (CTA)
+.cta-section {
+  background-color: color.adjust($primary-color, $lightness: -10%); // Usando color.adjust()
+  color: $text-light;
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-unit * 2;
+  }
+  .btn-primary {
+    background-color: $secondary-color;
+    border: none;
+    &:hover {
+      background-color: color.adjust($secondary-color, $lightness: -10%);
+    }
+  }
+}
+
+// Pie de página
+.footer {
+  background-color: $background-dark;
+  p {
+    margin: 0;
+    color: $text-light;
+  }
+}

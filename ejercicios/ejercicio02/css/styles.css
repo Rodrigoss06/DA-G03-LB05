@@ -1,0 +1,119 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  padding: 4rem 0;
+  background-color: #3498db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.header p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+.header button {
+  background-color: #ff6347;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.header button:hover {
+  background-color: rgb(255, 55.7608695652, 20);
+}
+
+#about {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(15.25, 15.25, 15.25);
+}
+#about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+#about p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+#portfolio {
+  padding: 4rem 0;
+  background-color: #1c1c1c;
+}
+#portfolio h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+#portfolio .portfolio-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  padding: 0 2rem;
+}
+#portfolio .portfolio-items .portfolio-item {
+  background-color: rgb(95.3179916318, 173.9790794979, 226.6820083682);
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+#portfolio .portfolio-items .portfolio-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#portfolio .portfolio-items .portfolio-item p {
+  font-size: 1rem;
+}
+
+#contact {
+  padding: 4rem 0;
+  background-color: rgb(15.25, 15.25, 15.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contact form input, #contact form textarea {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 300px;
+  background-color: rgb(53.5, 53.5, 53.5);
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+}
+#contact form button {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#contact form button:hover {
+  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+}
+
+/*# sourceMappingURL=styles.css.map */

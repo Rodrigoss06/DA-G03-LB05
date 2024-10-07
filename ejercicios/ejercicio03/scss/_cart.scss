@@ -1,0 +1,33 @@
+// Carrito de compras
+.cart-table {
+    width: 100%;
+    margin-top: $spacing-unit * 2;
+  
+    th, td {
+      padding: $spacing-unit;
+    }
+  
+    .btn-remove {
+      background-color: $secondary-color;
+      color: white;
+      @include rounded();
+      @include transition(background-color);
+  
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  
+    .btn-checkout {
+      background-color: $primary-color;
+      color: white;
+      padding: $spacing-unit;
+      @include rounded();
+      @include transition(background-color);
+  
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+      

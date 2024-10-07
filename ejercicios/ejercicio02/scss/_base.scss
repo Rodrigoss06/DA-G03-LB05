@@ -1,0 +1,35 @@
+// Estilos base
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  background-color: $background-dark;
+  color: $text-light;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+      color: lighten-color($primary-color, 10%);
+      @include transition(color);
+    }
+  }
+
+  h1, h2, h3 {
+    color: $text-light;
+  }
+
+  button {
+    background-color: $primary-color;
+    color: $text-light;
+    padding: $spacing-unit;
+    @include rounded();
+    @include transition(background-color);
+
+    &:hover {
+      background-color: darken-color($primary-color, 10%);
+    }
+  }
+}

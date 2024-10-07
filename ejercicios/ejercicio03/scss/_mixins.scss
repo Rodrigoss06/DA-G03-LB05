@@ -1,0 +1,13 @@
+// Mixins
+@mixin box-shadow($x, $y, $blur, $color) {
+    box-shadow: $x $y $blur $color;
+  }
+  
+  @mixin rounded($radius: $border-radius) {
+    border-radius: $radius;
+  }
+  
+  @mixin transition($property, $time: 0.3s) {
+    transition: $property $time ease-in-out;
+  }
+  

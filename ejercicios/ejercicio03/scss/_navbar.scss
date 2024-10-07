@@ -1,0 +1,24 @@
+// Barra de navegación
+.navbar {
+    background-color: $primary-color;
+  
+    .navbar-brand {
+      color: #fff;
+    }
+  
+    .nav-item a {
+      color: #fff;
+      padding: $spacing-unit;
+    }
+  
+    .nav-item a:hover {
+      background-color: darken($primary-color, 10%);
+      @include transition(background-color);
+    }
+  
+    .cart {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+  }
+  

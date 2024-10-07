@@ -1,0 +1,26 @@
+// Contenedor general
+.container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  header {
+    text-align: center;
+    padding: $spacing-unit * 4 0;
+  
+    h1 {
+      color: $primary-color;
+      margin-bottom: $spacing-unit;
+    }
+  
+    .button {
+      margin-top: $spacing-unit;
+    }
+  }
+  
+  section.cards {
+    display: flex;
+    gap: $spacing-unit * 2;
+    justify-content: space-between;
+  }
+  
