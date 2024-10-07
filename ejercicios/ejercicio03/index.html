@@ -27,7 +27,7 @@
             <a class="nav-link" href="#">Ofertas</a>
           </li>
         </ul>
-        <a class="btn btn-outline-light" href="#">🛒 Carrito</a>
+        <a class="btn btn-outline-light" href="cart.html">🛒 Carrito</a>
       </div>
     </div>
   </nav>
@@ -36,7 +36,7 @@
   <header class="hero-section">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active d-flex justify-content-center"  >
+        <div class="carousel-item active d-flex justify-content-center">
           <img src="img/productoDestacado01.jpg" class="d-block w-25 img-fluid" alt="Producto destacado 1">
           <div class="carousel-caption d-none d-md-block">
             <h5>Producto Destacado 1</h5>
@@ -72,6 +72,7 @@
             <img src="img/categoria01.jpg" class="img-fluid mb-3" alt="Categoría 1">
             <h3>Categoría 1</h3>
             <p>Descripción breve de la categoría 1.</p>
+            <button class="btn btn-primary" onclick="agregarAlCarrito('Categoría 1', 49.99)">Agregar al carrito</button>
           </div>
         </div>
         <div class="col-md-4">
@@ -79,6 +80,7 @@
             <img src="img/categoria02.jpg" class="img-fluid mb-3" alt="Categoría 2">
             <h3>Categoría 2</h3>
             <p>Descripción breve de la categoría 2.</p>
+            <button class="btn btn-primary" onclick="agregarAlCarrito('Categoría 2', 59.99)">Agregar al carrito</button>
           </div>
         </div>
         <div class="col-md-4">
@@ -86,6 +88,7 @@
             <img src="img/categoria03.jpg" class="img-fluid mb-3" alt="Categoría 3">
             <h3>Categoría 3</h3>
             <p>Descripción breve de la categoría 3.</p>
+            <button class="btn btn-primary" onclick="agregarAlCarrito('Categoría 3', 69.99)">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -109,5 +112,66 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Función para agregar productos al carrito
+    function agregarAlCarrito(nombre, precio) {
+      const producto = { nombre, precio, cantidad: 1 };
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      
+      // Verificar si el producto ya está en el carrito
+      const index = carrito.findIndex(item => item.nombre === nombre);
+      if (index > -1) {
+        carrito[index].cantidad++;
+      } else {
+        carrito.push(producto);
+      }
+
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      alert(`${nombre} agregado al carrito.`);
+    }
+
+    // Función para actualizar el carrito en la página del carrito (ejemplo cart.html)
+    function actualizarCarrito() {
+      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      const cartItems = document.getElementById('cartItems');
+      const totalAmount = document.getElementById('totalAmount');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((producto, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${producto.nombre}</td>
+          <td>$${producto.precio.toFixed(2)}</td>
+          <td>
+            <input type="number" value="${producto.cantidad}" min="1" class="form-control" onchange="cambiarCantidad(${index}, this.value)">
+          </td>
+          <td>$${(producto.precio * producto.cantidad).toFixed(2)}</td>
+          <td><button class="btn btn-danger btn-sm" onclick="eliminarProducto(${index})">Eliminar</button></td>
+        `;
+        cartItems.appendChild(row);
+        total += producto.precio * producto.cantidad;
+      });
+
+      totalAmount.textContent = total.toFixed(2);
+    }
+
+    // Cambiar cantidad en el carrito
+    function cambiarCantidad(index, cantidad) {
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      carrito[index].cantidad = parseInt(cantidad);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarCarrito();
+    }
+
+    // Eliminar producto del carrito
+    function eliminarProducto(index) {
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      carrito.splice(index, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarCarrito();
+    }
+  </script>
 </body>
 </html>
